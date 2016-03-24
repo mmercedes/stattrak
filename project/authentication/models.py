@@ -34,19 +34,20 @@ class AccountManager(BaseUserManager):
 class Account(AbstractBaseUser):
     email = models.EmailField(unique=True)
     username = models.CharField(max_length=40, unique=True)
-    first_name = models.CharField(max_length=40)
-    last_name = models.CharField(max_length=40)
+    first_name = models.CharField(max_length=40, blank=True)
+    last_name = models.CharField(max_length=40, blank=True)
 
     bio = models.CharField(max_length=140, blank=True)
     pic = models.CharField(blank=True, max_length=256)
-    rating = models.IntegerField()
     sendReport = models.BooleanField(default=True)    
     is_admin = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
+    rating = models.PositiveSmallIntegerField(default=0)
+
     objects = AccountManager()
     
-    USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['email']
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username']
     
     def __unicode__(self):
         return self.username
