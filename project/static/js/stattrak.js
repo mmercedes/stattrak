@@ -6,7 +6,9 @@
             'stattrak.routes',
             'stattrak.authentication',
             'stattrak.config',
-            'stattrak.layout'
+            'stattrak.layout',
+            'stattrak.profiles',
+            'stattrak.utils'
         ]);
 
     angular
