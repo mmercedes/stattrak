@@ -22,9 +22,24 @@
       </div>
 
       <div class="form-group">
-        <label for="settings__tagline">Bio</label>
+        <label for="settings__first_name">First Name</label>
+        <input type="text" class="form-control" id="settings__first_name" ng-model="vm.profile.first_name"/>
+      </div>
+
+      <div class="form-group">
+        <label for="settings__last_name">Last Name</label>
+        <input type="text" class="form-control" id="settings__last_name" ng-model="vm.profile.last_name"/>
+      </div>
+
+      <div class="form-group">
+        <label for="settings__bio">Bio</label>
         <textarea class="form-control" id="settings__bio" ng-model="vm.profile.bio"/>
       </div>
+
+      <div class="form-group">
+        <label for="settings__phone">Phone</label>
+        <input type="text" class="form-control" id="settings__phone" ng-model="vm.profile.phone"/>
+      </div>      
 
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Submit</button>

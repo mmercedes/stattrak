@@ -10,7 +10,7 @@ class AccountSerializer(serializers.ModelSerializer):
     class Meta:
         model = Account
         fields = ('id', 'email', 'username', 'created_at', 'sendReport',
-                  'first_name', 'last_name', 'bio', 'password',
+                  'first_name', 'last_name', 'bio', 'password', 'phone',
                   'pic', 'rating', 'is_admin', 'confirm_password')
 
         read_only_fields = ('created_at', 'rating', 'is_admin')
@@ -24,6 +24,7 @@ class AccountSerializer(serializers.ModelSerializer):
             instance.first_name = validated_data.get('first_name', instance.first_name)
             instance.last_name = validated_data.get('last_name', instance.last_name)
             instance.pic = validated_data.get('pic', instance.pic)
+            instance.phone = validated_data.get('phone', instance.phone)
             instance.sendReport = validated_data.get('sendReport', instance.sendReport)
             instance.save()
             

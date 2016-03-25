@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import BaseUserManager
 from django.contrib.auth.models import AbstractBaseUser
+from django.core.validators import RegexValidator
 
 class AccountManager(BaseUserManager):
     def create_user(self, email, password=None, **kwargs):
@@ -37,8 +38,10 @@ class Account(AbstractBaseUser):
     first_name = models.CharField(max_length=40, blank=True)
     last_name = models.CharField(max_length=40, blank=True)
 
+    phone_regex = RegexValidator(regex=r'^\d{10}$', message="Phone number must be entered in the format: '0123456789'")
+    phone = models.CharField(validators=[phone_regex], blank=True, max_length=10, null=True)
     bio = models.CharField(max_length=140, blank=True)
-    pic = models.CharField(blank=True, max_length=256)
+    pic = models.CharField(blank=True, max_length=256, default="/static/img/profile.png")
     sendReport = models.BooleanField(default=True)    
     is_admin = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)

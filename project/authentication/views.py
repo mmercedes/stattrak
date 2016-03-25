@@ -13,6 +13,11 @@ class AccountViewSet(viewsets.ModelViewSet):
     lookup_field = 'username'
     queryset = Account.objects.all()
     serializer_class = AccountSerializer
+
+
+    def list(self, request):
+        serializer = self.serializer_class(self.queryset, many=True)
+        return Response(serializer.data)
     
     def get_permissions(self):
         if self.request.method in permissions.SAFE_METHODS:

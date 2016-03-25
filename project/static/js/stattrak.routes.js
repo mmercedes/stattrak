@@ -16,6 +16,10 @@
             controller: 'LoginController',
             controllerAs: 'vm',
             templateUrl: '/static/templates/login.html'
+        }).when('/users', {
+            controller: 'ProfileListController',
+            controllerAs: 'vm',
+            templateUrl: '/static/templates/profile-list.html'
         }).when('/:username', {
             controller: 'ProfileController',
             controllerAs: 'vm',

@@ -5,9 +5,9 @@
         .module('stattrak.authentication.services')
         .factory('Authentication', Authentication);
 
-    Authentication.$inject = ['$cookies', '$http'];
+    Authentication.$inject = ['$cookies', '$http', 'Snackbar'];
 
-    function Authentication($cookies, $http) {
+    function Authentication($cookies, $http, Snackbar) {
 
         function register(email, password, username) {
 
@@ -15,7 +15,7 @@
                 Authentication.login(email, password);
             }
             function registerError(data, status, headers, config) {
-                console.error('Registration Failed');
+                Snackbar.error('Registration Failed');
             }
 
             return $http.post('/api/v1/accounts/', {
@@ -33,7 +33,7 @@
             }
 
             function loginError(data, status, headers, config) {
-                console.error('Login Failed');
+                Snackbar.error('Login Failed');
             }
             
             return $http.post('/api/v1/auth/login/', {
@@ -47,7 +47,7 @@
                 window.location = '/';
             }
             function logoutError(data, status, headers, config) {
-                console.error('Unable to logout');
+                Snackbar.error('Unable to logout');
             }
 
             return $http.post('/api/v1/auth/logout/')
