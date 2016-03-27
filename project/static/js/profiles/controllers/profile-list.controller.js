@@ -15,10 +15,6 @@
         function activate() {
             var authenticatedAccount = Authentication.getAuthenticatedAccount();
             // Redirect if not logged in
-            if (!authenticatedAccount) {
-                $location.url('/');
-                Snackbar.error('You are not authorized to view this page.');
-            }
             Profile.list().then(profileSuccess, profileError);
 
             function profileSuccess(data, status, headers, config) {

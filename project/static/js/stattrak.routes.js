@@ -8,6 +8,11 @@
     config.$inject = ['$routeProvider'];
 
     function config($routeProvider) {
+        var userRoute = {
+            controller: 'ProfileListController',
+            controllerAs: 'vm',
+            templateUrl: '/static/templates/profile-list.html'
+        }
         $routeProvider.when('/register', {
             controller: 'RegisterController',
             controllerAs: 'vm',
@@ -16,11 +21,8 @@
             controller: 'LoginController',
             controllerAs: 'vm',
             templateUrl: '/static/templates/login.html'
-        }).when('/users', {
-            controller: 'ProfileListController',
-            controllerAs: 'vm',
-            templateUrl: '/static/templates/profile-list.html'
-        }).when('/:username', {
+        }).when('/standings', userRoute)
+          .when('/:username', {
             controller: 'ProfileController',
             controllerAs: 'vm',
             templateUrl: '/static/templates/profile.html'
@@ -28,6 +30,6 @@
             controller: 'ProfileSettingsController',
             controllerAs: 'vm',
             templateUrl: '/static/templates/profile-settings.html'
-        }).otherwise('/');
+        }).otherwise('/standings', userRoute);
     }
 })();

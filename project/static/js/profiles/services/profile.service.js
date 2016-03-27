@@ -33,5 +33,6 @@
         function list() {
             return $http.get('/api/v1/accounts/');
         }
+
     }
 })();

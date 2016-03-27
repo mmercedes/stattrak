@@ -1,5 +1,5 @@
 <div class="jumbotron">
-<h2>All Players</h2>
+<h2>Standings</h2>
   <hr>
   <div class="row">
     <table class="table-responsive">
@@ -9,17 +9,19 @@
           <th class="col-xs-2">Username</th>
           <th class="col-xs-2">First</th>
           <th class="col-xs-2">Last</th>
-          <th class="col-xs-2">Phone</th>
+          <th class="col-xs-2">Rating</th>          
+          <th class="col-xs-2">Joined</th>
           <th class="col-xs-1"></th>
         </tr>
       </thead>
       <tbody>
         <tr ng-repeat="u in vm.users" ng-class-odd="'alt'">
-          <td class="col-xs-1"><img title="{{ u.username }}" alt="sorry" src="{{ u.pic }}" class="img-thumbnail img-responsive img-circle"></td>
+          <td class="col-xs-1"><img style="min-height:50px;height:50px;" title="{{ u.username }}" alt="sorry" src="{{ u.pic }}" class="img-thumbnail img-responsive img-circle"></td>
           <td class="col-xs-2 strong"><a href="/{{ u.username }}"><strong>{{ u.username}}</strong></a></td>
           <td class="col-xs-2">{{ u.first_name }}</td>
           <td class="col-xs-2">{{ u.last_name }}</td>
-          <td class="col-xs-2">{{u.phone}}</td>
+          <td class="col-xs-2">{{ u.rating }}</td>
+          <td class="col-xs-2">{{ u.created_at | date : 'shortDate' }}</td>
         </tr>
       </tbody>
     </table>
