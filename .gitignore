@@ -1,4 +1,5 @@
 *.pyc
+*#*
 project/node_modules/*
 project/venv/*
 project/db.sqlite3

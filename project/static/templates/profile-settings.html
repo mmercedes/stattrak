@@ -39,7 +39,13 @@
       <div class="form-group">
         <label for="settings__phone">Phone</label>
         <input type="text" class="form-control" id="settings__phone" ng-model="vm.profile.phone"/>
-      </div>      
+      </div>
+
+      <div class="form-group">
+        <label for="settings__sendReport">Send weekly email?</label><br>
+        <input type="checkbox" style="width:30px; display:inline-block;" class="form-control" id="settings__sendReport" ng-model="vm.profile.sendReport"/>
+        <p style="display:inline-block;">{{ vm.profile.sendReport ? 'Yes' : 'No' }}</p>
+      </div>
 
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Submit</button>
