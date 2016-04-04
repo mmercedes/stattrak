@@ -19,14 +19,19 @@ class LeagueViewSet(viewsets.ModelViewSet):
     serializer_class = LeagueSerializer
 
     def list(self, request):
-        serializer = self.serializer_class(self.queryset)
+        serializer = self.serializer_class(self.queryset, many=True)
         return Response(serializer.data)
 
     def create(self, request):
         serializer = self.serializer_class(data=request.data)
-
-        if serializer.is_valid() && len(queryset) == 0:
-            League.objects.create_league(**serializer.validated_data)
+        print request.data
+        
+        if serializer.is_valid():
+            league = League()
+            league.teamSize = serializer.validated_data.get('teamSize', league.teamSize)
+            league.name = serializer.validated_data.get('name', league.name)
+            league.logo = serializer.validated_data.get('logo', league.logo)
+            league.save()
             return Response(serializer.validated_data, status=status.HTTP_201_CREATED)
 
         return Response({
@@ -35,10 +40,7 @@ class LeagueViewSet(viewsets.ModelViewSet):
             }, status=status.HTTP_400_BAD_REQUEST)
     
     def get_permissions(self):
-        if self.request.method in permissions.SAFE_METHODS:
-            return (permissions.AllowAny(), )
-
-        if self.request.method = 'GET':
+        if self.request.method is 'GET':
             return (permissions.AllowAny(),)
 
         return (permissions.IsAuthenticated(),)

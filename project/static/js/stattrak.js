@@ -8,7 +8,8 @@
             'stattrak.config',
             'stattrak.layout',
             'stattrak.profiles',
-            'stattrak.utils'
+            'stattrak.utils',
+            'stattrak.league'
         ]);
 
     angular

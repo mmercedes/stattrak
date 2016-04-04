@@ -22,7 +22,11 @@
             controllerAs: 'vm',
             templateUrl: '/static/templates/login.html'
         }).when('/standings', userRoute)
-          .when('/:username', {
+          .when('/league', {
+            controller: 'LeagueController',
+            controllerAs: 'vm',
+            templateUrl: '/static/templates/league.html'
+        }).when('/:username', {
             controller: 'ProfileController',
             controllerAs: 'vm',
             templateUrl: '/static/templates/profile.html'

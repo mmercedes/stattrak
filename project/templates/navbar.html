@@ -14,6 +14,7 @@
       <ul class="nav navbar-nav pull-right">
         {% if user.is_authenticated %}
           <li><a href="/{{ user.username }}">{{ user.username | upper }}</a></li>
+          <li><a href="/league">League</a></li>
           <li><a href="/{{ user.username }}/settings">Settings</a></li>
           <li><a href="javascript:void(0)" ng-click="vm.logout()">Logout</a></li>
         {% else %}

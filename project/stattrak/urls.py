@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, url, include
-from stattrak.views import IndexView, LeagueView
+from stattrak.views import IndexView, LeagueViewSet
 from rest_framework_nested import routers
 from authentication.views import AccountViewSet, LoginView, LogoutView
 
