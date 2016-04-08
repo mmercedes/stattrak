@@ -28,7 +28,7 @@
             League.get().then(leagueSuccess, leagueError);
             
             function leagueSuccess(data, status, headers, config) {
-                vm.league = data.data;
+                vm.league = data.data[0];
             }
 
             function leagueError(data, status, headers, config) {

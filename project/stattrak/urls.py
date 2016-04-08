@@ -1,11 +1,12 @@
 from django.conf.urls import patterns, url, include
-from stattrak.views import IndexView, LeagueViewSet
+from stattrak.views import IndexView, LeagueViewSet, TeamViewSet
 from rest_framework_nested import routers
 from authentication.views import AccountViewSet, LoginView, LogoutView
 
 router = routers.SimpleRouter()
 router.register(r'accounts', AccountViewSet)
 router.register(r'league', LeagueViewSet)
+router.register(r'teams', TeamViewSet)
 
 urlpatterns = patterns(
     '',

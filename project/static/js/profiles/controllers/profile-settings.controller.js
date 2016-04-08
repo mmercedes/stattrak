@@ -45,6 +45,7 @@
             }
         }
 
+        
         function destroy() {
             Profile.destroy(vm.profile.username).then(profileSuccess, profileError);
 
@@ -59,6 +60,7 @@
                 Snackbar.error(data.error);
             }
         }
+        
 
 
         function update() {

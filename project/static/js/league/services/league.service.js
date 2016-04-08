@@ -21,7 +21,7 @@
         }
 
         function update(league) {
-            return $http.put('/api/v1/league/', league);
+            return $http.post('/api/v1/league/', league);
         }
 
     }

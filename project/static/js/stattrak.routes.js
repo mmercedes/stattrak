@@ -26,6 +26,10 @@
             controller: 'LeagueController',
             controllerAs: 'vm',
             templateUrl: '/static/templates/league.html'
+        }).when('/teams', {
+            controller: 'TeamListController',
+            controllerAs: 'vm',
+            templateUrl: '/static/templates/team-list.html'
         }).when('/:username', {
             controller: 'ProfileController',
             controllerAs: 'vm',
