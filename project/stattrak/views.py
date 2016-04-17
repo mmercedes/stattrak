@@ -66,7 +66,9 @@ class TeamViewSet(viewsets.ModelViewSet):
         if serializer.is_valid():
             team = Team()
             team.name = serializer.validated_data.get('name', team.name)
-            teammates = serializer.validated_data.get('players', [])
+            teammates = request.data.get('players', [])
+            print teammates
+            print 'here'
             for teammate in teammates:
                 team.players.add(Accounts.objects.get(username=teammate.username))
             team.save()

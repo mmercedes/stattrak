@@ -13,7 +13,8 @@
             destroy: destroy,
             get: get,
             update: update,
-            list: list
+            list: list,
+            create: create
         };
 
         return Team;
@@ -30,6 +31,10 @@
             return $http.post('/api/v1/teams/' + team.id + '/', team);
         }
 
+        function create(team) {
+            return $http.post('/api/v1/teams/', team);
+        }
+        
         function list() {
             return $http.get('/api/v1/teams/');
         }

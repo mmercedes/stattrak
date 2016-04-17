@@ -1,14 +1,13 @@
 <div class="jumbotron">
-<h2>{{ vm.league.name }} Team Standings</h2>
+  <h2>{{ vm.league.name }} Team Standings</h2>
   <hr>
+  <button type="button" style="float:right;" class="btn btn-primary" ng-click="vm.showModal()">Create Team</button>
   <div class="row">
     <table class="table-responsive">
       <thead>
         <tr>
-          <th class="col-xs-1"></th>
           <th class="col-xs-2">Name</th>
           <th class="col-xs-2">Players</th>
-          <th class="col-xs-1"></th>
         </tr>
       </thead>
       <tbody>

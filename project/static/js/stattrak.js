@@ -3,13 +3,15 @@
 
     angular
         .module('stattrak', [
+            'ui.bootstrap',
             'stattrak.routes',
             'stattrak.authentication',
             'stattrak.config',
             'stattrak.layout',
             'stattrak.profiles',
             'stattrak.utils',
-            'stattrak.league'
+            'stattrak.league',
+            'stattrak.teams'
         ]);
 
     angular
