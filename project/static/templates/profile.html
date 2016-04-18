@@ -10,7 +10,7 @@
       <h2 class="profile__first_name">{{ vm.profile.first_name }} {{ vm.profile.last_name }}</h2>
       <h3 class="profile__email">{{ vm.profile.email }}</h3>
       <h3 class="profile__phone">Phone - <strong>{{ vm.profile.phone }}</strong></h3>
-      <h3 class="profile__rating">Rating - <strong>{{ vm.profile.rating }}<strong></h3><br>
+      <h3 class="profile__rating">Rating - <strong>{{ vm.profile.rating == 0 ? 0 : 1000+vm.profile.rating }}<strong></h3><br>
       <h4 class="profile__bio">{{ vm.profile.bio }}</h4>
       <div ng-show="vm.user.is_admin && !vm.profile.is_admin">
         <form role="form" ng-submit="vm.makeAdmin()">
@@ -20,5 +20,19 @@
         </form>
       </div>
     </div>
+  </div>
+
+  <div class="col-md-4 well" style="margin-left:20px;">
+    <h2>Player Stats</h2><br>
+    <p ng-show="!vm.stats">No statistics recorded for this player yet</p>
+    <table class="table-responsive table-striped">
+      <thead></thead>
+      <tbody>
+        <tr ng-repeat="(key, value) in vm.stats track by $index" ng-class-odd="alt">
+          <td class="col-md-2">{{ key }}</td>
+          <td class="col-md-2 strong">{{ value == null ? 0 : value}}</td>          
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

@@ -33,6 +33,10 @@ class PlayerData(models.Model):
     key = models.CharField(max_length=30)
     value = models.IntegerField()
 
+class PlayerDataType(models.Model):
+    id = models.AutoField(primary_key=True)
+    key = models.CharField(max_length=30)
+    
 # Represents a single statistic tied to a single team from a single match
 class TeamData(models.Model):
     id = models.AutoField(primary_key=True)
@@ -40,3 +44,7 @@ class TeamData(models.Model):
     result = models.ForeignKey('Result', on_delete=models.CASCADE)
     key = models.CharField(max_length=30)
     value = models.IntegerField()        
+
+class TeamDataType(models.Model):
+    id = models.AutoField(primary_key=True)    
+    key = models.CharField(max_length=30)

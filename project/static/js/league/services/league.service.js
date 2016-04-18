@@ -11,7 +11,11 @@
 
         var League = {
             get: get,
-            update: update
+            update: update,
+            listPlayerFields: listPlayerFields,
+            listTeamFields: listTeamFields,
+            addPlayerField: addPlayerField,
+            addTeamField: addTeamField
         };
 
         return League;
@@ -24,5 +28,20 @@
             return $http.post('/api/v1/league/', league);
         }
 
+        function listPlayerFields() {
+            return $http.get('/api/v1/playerDataTypes/')
+        }
+
+        function listTeamFields() {
+            return $http.get('/api/v1/teamDataTypes/')
+        }
+
+        function addPlayerField(data) {
+            return $http.post('/api/v1/playerDataTypes/', data)
+        }
+
+        function addTeamField(data) {
+            return $http.post('/api/v1/teamDataTypes/', data)
+        }
     }
 })();

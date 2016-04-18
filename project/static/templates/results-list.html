@@ -1,0 +1,24 @@
+<div class="jumbotron">
+  <h2>Recent Matches</h2>
+  <hr>
+  <button type="button" style="float:right;" class="btn btn-primary" ng-click="vm.reportMatch()">Report a Match</button>
+  <div class="row">
+    <table class="table-responsive">
+      <thead>
+        <tr>
+          <th class="col-md-2">Home Team</th>
+          <th class="col-md-2">Away Team</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="result in vm.results" ng-class-odd="'alt'">
+          <td class="col-md-2 {{ result.outcome == 'W' ? 'bg-success' : 'bg-danger'}}">{{ result.homeTeam.name }}</td>
+          <td class="col-md-2 {{ result.outcome == 'L' ? 'bg-success' : 'bg-danger'}}">{{ result.awayTeam.name }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div><!--/row-->
+  <div class="row">
+    <hr>
+  </div>
+</div><!--/container-->

@@ -24,15 +24,23 @@
             vm.user = Authentication.getAuthenticatedAccount();
 
             Profile.get(username).then(profileSuccess, profileError);
+            Profile.getStats(username).then(statsSuccess, statsError);
             
             function profileSuccess(data, status, headers, config) {
                 vm.profile = data.data;
             }
-
             function profileError(data, status, headers, config) {
                 $location.url('/');
                 Snackbar.error('User does not exist.');
             }
+            function statsSuccess(data, status, headers, config) {
+                vm.stats = data.data;
+                console.log(vm.stats);
+            }
+            function statsError(data, status, headers, config) {
+                vm.stats = null;
+            }
+            
 
         }
 

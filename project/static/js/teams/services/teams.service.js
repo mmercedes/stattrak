@@ -14,7 +14,8 @@
             get: get,
             update: update,
             list: list,
-            create: create
+            create: create,
+            getStats: getStats
         };
 
         return Team;
@@ -38,6 +39,10 @@
         function list() {
             return $http.get('/api/v1/teams/');
         }
+
+        function getStats(id) {
+            return $http.get('/api/v1/teams/' + id + '/stats/');
+        }        
 
     }
 })();

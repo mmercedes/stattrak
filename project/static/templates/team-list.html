@@ -3,17 +3,17 @@
   <hr>
   <button type="button" style="float:right;" class="btn btn-primary" ng-click="vm.showModal()">Create Team</button>
   <div class="row">
-    <table class="table-responsive">
+    <table class="table-responsive table-striped">
       <thead>
         <tr>
-          <th class="col-xs-2">Name</th>
-          <th class="col-xs-2">Players</th>
+          <th class="col-md-2">Name</th>
+          <th class="col-md-2">Players</th>
         </tr>
       </thead>
       <tbody>
         <tr ng-repeat="team in vm.teams" ng-class-odd="'alt'">
-          <td class="col-xs-2">{{ team.name }}</td>
-          <td class="col-xs-2 strong" ng-repeat="player in team.players"><a href="/{{ player.username }}"><strong>{{ player.username}}</strong></a></td>
+          <td class="col-md-2"><a href="/team/{{ team.id }}"><strong>{{ team.name }}</strong></a></td>
+          <td class="col-md-2 strong" ng-repeat="player in team.players"><strong>{{ player.username}}</strong></td>
         </tr>
       </tbody>
     </table>

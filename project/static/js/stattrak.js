@@ -11,7 +11,8 @@
             'stattrak.profiles',
             'stattrak.utils',
             'stattrak.league',
-            'stattrak.teams'
+            'stattrak.teams',
+            'stattrak.results'
         ]);
 
     angular

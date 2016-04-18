@@ -4,14 +4,16 @@ from authentication.models import Account
 from authentication.permissions import IsAccountOwner
 from authentication.serializers import AccountSerializer
 from rest_framework.response import Response
+from rest_framework.decorators import detail_route
 from django.contrib.auth import authenticate, login, logout
-
+from stattrak.models import PlayerData, PlayerDataType
+from django.db.models import Sum
 
 import json
 
 class AccountViewSet(viewsets.ModelViewSet):
     lookup_field = 'username'
-    queryset = Account.objects.all()
+    queryset = Account.objects.order_by('-rating')
     serializer_class = AccountSerializer
 
 
@@ -41,6 +43,16 @@ class AccountViewSet(viewsets.ModelViewSet):
             'message': 'Unable to create an account'
         }, status=status.HTTP_400_BAD_REQUEST)
 
+    @detail_route()
+    def stats(self, request, *args, **kwargs):
+        user = self.get_object()
+        types = PlayerDataType.objects.all()
+        stats = {}
+        for t in types:
+            data = PlayerData.objects.filter(player=user, key=t.key).aggregate(Sum('value'))
+            stats[t.key] = data['value__sum']
+        return Response(stats)
+    
     
 class LoginView(views.APIView):
     def post(self, request, format=None):

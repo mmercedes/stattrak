@@ -1,5 +1,6 @@
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -51,12 +52,9 @@ WSGI_APPLICATION = 'stattrak.wsgi.application'
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
 import dj_database_url
-
-DATABASES = {
-    'default': dj_database_url.config(
-        default='sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
-    )
-}
+DATABASES = {}
+#DATABASES['default'] =  dj_database_url.config()
+DATABASES['default'] = dj_database_url.config(default='sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3'))
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/

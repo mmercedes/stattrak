@@ -30,6 +30,18 @@
             controller: 'TeamListController',
             controllerAs: 'vm',
             templateUrl: '/static/templates/team-list.html'
+        }).when('/team/:id', {
+            controller: 'TeamController',
+            controllerAs: 'vm',
+            templateUrl: '/static/templates/team.html'
+        }).when('/results', {
+            controller: 'ResultsListController',
+            controllerAs: 'vm',
+            templateUrl: '/static/templates/results-list.html'
+        }).when('/report', {
+            controller: 'ResultsController',
+            controllerAs: 'vm',
+            templateUrl: '/static/templates/result.html'
         }).when('/:username', {
             controller: 'ProfileController',
             controllerAs: 'vm',

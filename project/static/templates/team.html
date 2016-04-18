@@ -1,0 +1,24 @@
+<div class="profile row" id="profileInfo" ng-show="vm.team">
+  <div class="col-md-3 well">
+    <div style="clear:both; text-align:center;">
+      <h1 class="team__name"><strong>{{ vm.team.name }}</strong></h1><br>
+      <h2>Roster</h2><hr>
+      <div ng-repeat="player in vm.team.players track by $index"><h3><a href="/{{ player.username }}"><strong>{{ player.username }}</strong></a></h3></div>
+    </div>
+  </div>
+    
+
+  <div class="col-md-4 well" style="margin-left:20px;">
+    <h2>Team Stats</h2><br>
+    <p ng-show="!vm.stats">No statistics recorded for this team yet</p>
+    <table class="table-responsive table-striped">
+      <thead></thead>
+      <tbody>
+        <tr ng-repeat="(key, value) in vm.stats track by $index" ng-class-odd="alt">
+          <td class="col-md-2">{{ key }}</td>
+          <td class="col-md-2"><strong>{{ value == null ? 0 : value}}</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+<div class="col-md-4 col-md-offset-4">
+  <div class="well">
+    <h1>Report a Match</h1><br>
+    <form role="form" ng-submit="vm.addResult()">
+
+      <div class="form-group">
+        <label for="homeTeam">Home Team</label>
+        <select ng-model="vm.result.homeTeam.name" id="homeTeam">
+          <option ng-repeat="t in vm.teams" value="{{ t.name }}">{{ t.name }}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="awayTeam">Away Team</label>
+        <select ng-model="vm.result.awayTeam.name" id="awayTeam">
+          <option ng-repeat="t in vm.teams" value="{{ t.name }}">{{ t.name }}</option>
+        </select>
+      </div>      
+
+      <div class="form-group">
+        <label for="outcome">Outcome for Home Team</label>
+        <select ng-model="vm.result.outcome" id="outocome">
+          <option value="W">Win</option>
+          <option value="L">Loss</option>
+          <option value="T">Tie</option>
+        </select>
+      </div>
+
+      <hr>
+      <p><strong>Home Team Stats</strong></p>
+      <div class="form-group" ng-show="vm.homeTeamFields">
+        <div ng-repeat="stat in vm.homeTeamFields track by $index">
+          <label for="{{ stat.key }}">{{ stat.key }}</label>&nbsp
+          <input type="text" id="{{ stat.key }}" ng-model="stat.value"/>
+        </div>
+      </div>
+
+      <div class="form-group" ng-show="vm.result.homeTeam.players">
+        <div ng-repeat="player in vm.result.homeTeam.players track by $index">
+          <p><strong>{{ player.username }}'s</strong> stats</p>
+        </div>
+      </div>
+      <hr>
+      
+      <p><strong>Away Team Stats</strong></p>
+      <div class="form-group" ng-show="vm.awayTeamFields">
+        <div ng-repeat="stat in vm.awayTeamFields track by $index">
+          <label for="{{ stat.key }}">{{ stat.key }}</label>&nbsp
+          <input type="text" id="{{ stat.key }}" ng-model="stat.value"/>
+        </div>
+      </div>
+      <hr>      
+
+      
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>      
+  </div>
+</div>

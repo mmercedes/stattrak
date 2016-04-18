@@ -13,7 +13,8 @@
             destroy: destroy,
             get: get,
             update: update,
-            list: list
+            list: list,
+            getStats: getStats
         };
 
         return Profile;
@@ -32,6 +33,10 @@
 
         function list() {
             return $http.get('/api/v1/accounts/');
+        }
+
+        function getStats(username) {
+            return $http.get('/api/v1/accounts/' + username + '/stats/');
         }
 
     }

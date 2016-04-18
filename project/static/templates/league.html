@@ -26,4 +26,34 @@
       </div>
     </form>
   </div>
+  <div class="well">
+    <form role="form" class="settings" ng-submit="vm.addPlayerField()">
+
+      <p><strong>Player Statistics Tracked :</strong></p>
+      <div class="form-group" ng-repeat="field in vm.playerFields track by $index">
+        <p>{{ field.key }}</p>
+      </div class="form-group">
+
+      <div class="form-group">
+        <input type="text" class="form-control" maxLength="30" ng-model="vm.newPlayerField">
+        <button type="submit" class="btn btn-primary" ng-click="">Add Field</button>
+      </div>
+     
+    </form>
   </div>
+  <div class="well">
+    <form role="form" class="settings" ng-submit="vm.addTeamField()">
+
+      <p><strong>Team Statistics Tracked :</strong></p>
+      <div class="form-group" ng-repeat="field in vm.teamFields track by $index">
+        <p>{{ field.key }}</p>
+      </div class="form-group">
+
+      <div class="form-group">
+        <input type="text" class="form-control" maxLength="30" ng-model="vm.newTeamField">
+        <button type="submit" class="btn btn-primary" ng-click="">Add Field</button>
+      </div>
+     
+    </form>
+  </div>  
+</div>

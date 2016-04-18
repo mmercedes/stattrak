@@ -1,8 +1,8 @@
 <div class="jumbotron">
-<h2>{{ vm.league.name }} Standings</h2>
+  <h2>{{ vm.league.name }} Individual Standings</h2>
   <hr>
   <div class="row">
-    <table class="table-responsive">
+    <table class="table-responsive table-striped">
       <thead>
         <tr>
           <th class="col-xs-1"></th>
@@ -20,7 +20,7 @@
           <td class="col-xs-2 strong"><a href="/{{ u.username }}"><strong>{{ u.username}}</strong></a></td>
           <td class="col-xs-2">{{ u.first_name }}</td>
           <td class="col-xs-2">{{ u.last_name }}</td>
-          <td class="col-xs-2">{{ u.rating }}</td>
+          <td class="col-xs-2">{{ u.rating == 0 ? 0: 1000+u.rating }}</td>
           <td class="col-xs-2">{{ u.created_at | date : 'shortDate' }}</td>
         </tr>
       </tbody>

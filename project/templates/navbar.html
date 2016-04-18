@@ -12,12 +12,14 @@
 
     <div class="collapse navbar-collapse" id="stattrak-nav">
       <ul class="nav navbar-nav pull-right">
+          <li><a href="/results">Matches</a></li>
+          <li><a href="/teams">Teams</a></li>
         {% if user.is_admin %}
           <li><a href="/league">League</a></li>
         {% endif %}
         {% if user.is_authenticated %}
-          <li><a href="/{{ user.username }}">{{ user.username | upper }}</a></li>
           <li><a href="/{{ user.username }}/settings">Settings</a></li>
+          <li><a href="/{{ user.username }}">{{ user.username}}</a></li>
           <li><a href="javascript:void(0)" ng-click="vm.logout()">Logout</a></li>
         {% else %}
           <li><a href="/login">Login</a></li>

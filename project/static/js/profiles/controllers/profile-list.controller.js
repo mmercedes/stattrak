@@ -24,7 +24,6 @@
             }
 
             function profileError(data, status, headers, config) {
-                $location.url('/');
                 Snackbar.error('No users found.');
             }
 
