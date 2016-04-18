@@ -1,0 +1,24 @@
+<div class="profile row" id="profileInfo" ng-show="vm.profile">
+  <div class="col-md-3 well">
+    <div class="col-xs-8 col-md-10" style="padding-left:20%;">
+      <div class="thumbnail">
+        <img src="{{ vm.profile.pic }}" alt="No Image">
+      </div>
+    </div>
+    <div style="clear:both; text-align:center;">
+      <h1 class="profile__username">{{ vm.profile.username | uppercase }} <small>{{ vm.profile.is_admin ? 'ADMIN' : '' }}</small></h1>
+      <h2 class="profile__first_name">{{ vm.profile.first_name }} {{ vm.profile.last_name }}</h2>
+      <h3 class="profile__email">{{ vm.profile.email }}</h3>
+      <h3 class="profile__phone">Phone - <strong>{{ vm.profile.phone }}</strong></h3>
+      <h3 class="profile__rating">Rating - <strong>{{ vm.profile.rating }}<strong></h3><br>
+      <h4 class="profile__bio">{{ vm.profile.bio }}</h4>
+      <div ng-show="vm.user.is_admin && !vm.profile.is_admin">
+        <form role="form" ng-submit="vm.makeAdmin()">
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Make Admin</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
