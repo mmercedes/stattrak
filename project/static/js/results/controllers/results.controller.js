@@ -60,7 +60,8 @@
                 Snackbar.error('Home and Away teams must be different!');
                 return;
             }
-            
+
+            vm.result.reporter = Authentication.getAuthenticatedAccount().username;
             Results.add(vm.result).then(resultSuccess, resultError);
 
             function addTeamStats() {

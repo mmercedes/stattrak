@@ -176,7 +176,8 @@ class ResultViewSet(viewsets.ModelViewSet):
         result.outcome = request.data.get('outcome', '')
         homeTeam = request.data.get('homeTeam', {})
         awayTeam = request.data.get('awayTeam', {})
-
+        reporter = Account.objects.get(username=request.data.get('reporter',""))
+        
         if result.outcome is not '':
             result.homeTeam = Team.objects.get(name=homeTeam['name'])
             result.awayTeam = Team.objects.get(name=awayTeam['name'])

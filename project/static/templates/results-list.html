@@ -14,6 +14,7 @@
         <tr ng-repeat="result in vm.results" ng-class-odd="'alt'">
           <td class="col-md-2 {{ result.outcome == 'W' ? 'bg-success' : 'bg-danger'}}">{{ result.homeTeam.name }}</td>
           <td class="col-md-2 {{ result.outcome == 'L' ? 'bg-success' : 'bg-danger'}}">{{ result.awayTeam.name }}</td>
+          <td class="col-md-2">{{ result.reporter.username }}</td>
         </tr>
       </tbody>
     </table>

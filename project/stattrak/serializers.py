@@ -124,14 +124,18 @@ class TeamDataSerializer(serializers.ModelSerializer):
 class ResultSerializer(serializers.ModelSerializer):
     homeTeam = TeamSerializer(read_only=True)
     awayTeam = TeamSerializer(read_only=True)
+    reporter = AccountSerializer(read_only=True)
     
     class Meta:
         model = Result
-        fields = ('id', 'outcome', 'homeTeam', 'awayTeam')
+        fields = ('id', 'outcome', 'homeTeam', 'awayTeam', 'reporter')
         read_only_fields = ('id')
 
         def create(self, validated_data):
-            return
+            user = validated_data.get('reporter', {})
+            data = validated_data
+            data.reporter = Account.objects.get(username=user)
+            return data
 
         def update(self, instance, validated_data):
             return

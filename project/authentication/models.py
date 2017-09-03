@@ -45,8 +45,9 @@ class Account(AbstractBaseUser):
     sendReport = models.BooleanField(default=True)    
     is_admin = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
-    rating = models.PositiveSmallIntegerField(default=0)
-
+    rating = models.IntegerField(default=0)
+    isReporter = models.BooleanField(default=False)
+    
     objects = AccountManager()
     
     USERNAME_FIELD = 'email'

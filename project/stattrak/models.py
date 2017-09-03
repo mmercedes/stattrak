@@ -24,7 +24,8 @@ class Result(models.Model):
     outcome = models.CharField(max_length=1, choices=OUTCOMES)
     homeTeam = models.ForeignKey('Team', related_name='homeTeam', on_delete=models.CASCADE)
     awayTeam = models.ForeignKey('Team', related_name='awayTeam', on_delete=models.CASCADE)
-
+    reporter = models.ForeignKey(auth_models.Account, on_delete=models.CASCADE)
+    
 # Represents a single statistic tied to a single player from a single match 
 class PlayerData(models.Model):
     id = models.AutoField(primary_key=True)

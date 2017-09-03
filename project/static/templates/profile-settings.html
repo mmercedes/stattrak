@@ -42,6 +42,11 @@
       </div>
 
       <div class="form-group">
+        <label for="settings__pic">Profile Pic URL</label>
+        <input type="text" class="form-control" id="settings__pic" ng-model="vm.profile.pic"/>
+      </div>      
+
+      <div class="form-group">
         <label for="settings__sendReport">Send weekly email?</label><br>
         <input type="checkbox" style="width:30px; display:inline-block;" class="form-control" id="settings__sendReport" ng-model="vm.profile.sendReport"/>
         <p style="display:inline-block;">{{ vm.profile.sendReport ? 'Yes' : 'No' }}</p>
